@@ -1,0 +1,27 @@
+[2023-07-10T08:26:08.255+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_uber_data.transform_date_time_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T08:26:08.263+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_uber_data.transform_date_time_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T08:26:08.264+0000] {taskinstance.py:1308} INFO - Starting attempt 16 of 17
+[2023-07-10T08:26:08.276+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): transform_date_time_dim> on 2023-07-10 02:44:19.817965+00:00
+[2023-07-10T08:26:08.280+0000] {standard_task_runner.py:57} INFO - Started process 22209 to run task
+[2023-07-10T08:26:08.283+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_uber_data', 'transform_date_time_dim', 'manual__2023-07-10T02:44:19.817965+00:00', '--job-id', '201', '--raw', '--subdir', 'DAGS_FOLDER/etl_uber_data.py', '--cfg-path', '/tmp/tmpofcine91']
+[2023-07-10T08:26:08.284+0000] {standard_task_runner.py:85} INFO - Job 201: Subtask transform_date_time_dim
+[2023-07-10T08:26:08.324+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_uber_data.transform_date_time_dim manual__2023-07-10T02:44:19.817965+00:00 [running]> on host 1481ab9bb806
+[2023-07-10T08:26:08.386+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mervyn Frost' AIRFLOW_CTX_DAG_ID='etl_uber_data' AIRFLOW_CTX_TASK_ID='transform_date_time_dim' AIRFLOW_CTX_EXECUTION_DATE='2023-07-10T02:44:19.817965+00:00' AIRFLOW_CTX_TRY_NUMBER='16' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-10T02:44:19.817965+00:00'
+[2023-07-10T08:26:08.596+0000] {logging_mixin.py:149} INFO - <class 'pandas.core.frame.DataFrame'>
+[2023-07-10T08:26:08.596+0000] {python.py:183} INFO - Done. Returned value was:        datetime_id tpep_pickup_datetime  ...  drop_year  drop_weekday
+0                0  2016-03-01 00:00:00  ...       2016             1
+1                1  2016-03-01 00:00:00  ...       2016             1
+2                2  2016-03-01 00:00:00  ...       2016             1
+3                3  2016-03-01 00:00:00  ...       2016             1
+4                4  2016-03-01 00:00:00  ...       2016             1
+...            ...                  ...  ...        ...           ...
+99995        99995  2016-03-01 06:17:10  ...       2016             1
+99996        99996  2016-03-01 06:17:10  ...       2016             1
+99997        99997  2016-03-01 06:17:10  ...       2016             1
+99998        99998  2016-03-01 06:17:10  ...       2016             1
+99999        99999  2016-03-01 06:17:11  ...       2016             1
+
+[100000 rows x 13 columns]
+[2023-07-10T08:26:08.775+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=etl_uber_data, task_id=transform_date_time_dim, execution_date=20230710T024419, start_date=20230710T082608, end_date=20230710T082608
+[2023-07-10T08:26:08.817+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-07-10T08:26:08.839+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

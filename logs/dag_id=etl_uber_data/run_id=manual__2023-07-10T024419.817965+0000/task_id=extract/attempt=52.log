@@ -1,0 +1,13 @@
+[2023-07-10T10:00:29.237+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_uber_data.extract manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T10:00:29.246+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_uber_data.extract manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T10:00:29.247+0000] {taskinstance.py:1308} INFO - Starting attempt 52 of 53
+[2023-07-10T10:00:29.258+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): extract> on 2023-07-10 02:44:19.817965+00:00
+[2023-07-10T10:00:29.263+0000] {standard_task_runner.py:57} INFO - Started process 1297 to run task
+[2023-07-10T10:00:29.265+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_uber_data', 'extract', 'manual__2023-07-10T02:44:19.817965+00:00', '--job-id', '469', '--raw', '--subdir', 'DAGS_FOLDER/etl_uber_data.py', '--cfg-path', '/tmp/tmp2eex7z9n']
+[2023-07-10T10:00:29.267+0000] {standard_task_runner.py:85} INFO - Job 469: Subtask extract
+[2023-07-10T10:00:29.370+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_uber_data.extract manual__2023-07-10T02:44:19.817965+00:00 [running]> on host 1481ab9bb806
+[2023-07-10T10:00:29.451+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mervyn Frost' AIRFLOW_CTX_DAG_ID='etl_uber_data' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2023-07-10T02:44:19.817965+00:00' AIRFLOW_CTX_TRY_NUMBER='52' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-10T02:44:19.817965+00:00'
+[2023-07-10T10:00:30.002+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-07-10T10:00:30.010+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=etl_uber_data, task_id=extract, execution_date=20230710T024419, start_date=20230710T100029, end_date=20230710T100030
+[2023-07-10T10:00:30.040+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-07-10T10:00:30.064+0000] {taskinstance.py:2653} INFO - 1 downstream tasks scheduled from follow-on schedule check

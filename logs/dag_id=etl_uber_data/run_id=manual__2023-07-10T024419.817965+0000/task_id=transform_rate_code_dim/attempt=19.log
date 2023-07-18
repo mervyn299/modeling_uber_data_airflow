@@ -1,0 +1,26 @@
+[2023-07-10T08:36:25.679+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_uber_data.transform_rate_code_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T08:36:25.693+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_uber_data.transform_rate_code_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T08:36:25.694+0000] {taskinstance.py:1308} INFO - Starting attempt 19 of 20
+[2023-07-10T08:36:25.712+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): transform_rate_code_dim> on 2023-07-10 02:44:19.817965+00:00
+[2023-07-10T08:36:25.717+0000] {standard_task_runner.py:57} INFO - Started process 23910 to run task
+[2023-07-10T08:36:25.721+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_uber_data', 'transform_rate_code_dim', 'manual__2023-07-10T02:44:19.817965+00:00', '--job-id', '242', '--raw', '--subdir', 'DAGS_FOLDER/etl_uber_data.py', '--cfg-path', '/tmp/tmpkutq5t5z']
+[2023-07-10T08:36:25.724+0000] {standard_task_runner.py:85} INFO - Job 242: Subtask transform_rate_code_dim
+[2023-07-10T08:36:25.784+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_uber_data.transform_rate_code_dim manual__2023-07-10T02:44:19.817965+00:00 [running]> on host 1481ab9bb806
+[2023-07-10T08:36:25.891+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mervyn Frost' AIRFLOW_CTX_DAG_ID='etl_uber_data' AIRFLOW_CTX_TASK_ID='transform_rate_code_dim' AIRFLOW_CTX_EXECUTION_DATE='2023-07-10T02:44:19.817965+00:00' AIRFLOW_CTX_TRY_NUMBER='19' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-10T02:44:19.817965+00:00'
+[2023-07-10T08:36:26.078+0000] {python.py:183} INFO - Done. Returned value was:        rate_code_id  RatecodeID rate_code_name
+0                 0           1  Standard rate
+1                 1           1  Standard rate
+2                 2           1  Standard rate
+3                 3           1  Standard rate
+4                 4           3         Newark
+...             ...         ...            ...
+99995         99995           1  Standard rate
+99996         99996           1  Standard rate
+99997         99997           1  Standard rate
+99998         99998           1  Standard rate
+99999         99999           1  Standard rate
+
+[100000 rows x 3 columns]
+[2023-07-10T08:36:26.213+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=etl_uber_data, task_id=transform_rate_code_dim, execution_date=20230710T024419, start_date=20230710T083625, end_date=20230710T083626
+[2023-07-10T08:36:26.258+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-07-10T08:36:26.283+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

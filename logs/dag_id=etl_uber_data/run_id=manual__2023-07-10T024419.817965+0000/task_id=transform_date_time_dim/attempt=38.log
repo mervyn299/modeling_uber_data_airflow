@@ -1,0 +1,22 @@
+[2023-07-10T09:17:29.933+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_uber_data.transform_date_time_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T09:17:29.945+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_uber_data.transform_date_time_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T09:17:29.946+0000] {taskinstance.py:1308} INFO - Starting attempt 38 of 39
+[2023-07-10T09:17:29.962+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): transform_date_time_dim> on 2023-07-10 02:44:19.817965+00:00
+[2023-07-10T09:17:29.969+0000] {standard_task_runner.py:57} INFO - Started process 29902 to run task
+[2023-07-10T09:17:29.972+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_uber_data', 'transform_date_time_dim', 'manual__2023-07-10T02:44:19.817965+00:00', '--job-id', '390', '--raw', '--subdir', 'DAGS_FOLDER/etl_uber_data.py', '--cfg-path', '/tmp/tmpqlnvw0ri']
+[2023-07-10T09:17:29.975+0000] {standard_task_runner.py:85} INFO - Job 390: Subtask transform_date_time_dim
+[2023-07-10T09:17:30.040+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_uber_data.transform_date_time_dim manual__2023-07-10T02:44:19.817965+00:00 [running]> on host 1481ab9bb806
+[2023-07-10T09:17:30.145+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mervyn Frost' AIRFLOW_CTX_DAG_ID='etl_uber_data' AIRFLOW_CTX_TASK_ID='transform_date_time_dim' AIRFLOW_CTX_EXECUTION_DATE='2023-07-10T02:44:19.817965+00:00' AIRFLOW_CTX_TRY_NUMBER='38' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-10T02:44:19.817965+00:00'
+[2023-07-10T09:17:30.160+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_uber_data.py", line 40, in transform_date_time_dim
+    datetime_dim = df[['tpep_pickup_datetime','tpep_dropoff_datetime']].reset_index(drop=True)
+TypeError: 'NoneType' object is not subscriptable
+[2023-07-10T09:17:30.174+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_uber_data, task_id=transform_date_time_dim, execution_date=20230710T024419, start_date=20230710T091729, end_date=20230710T091730
+[2023-07-10T09:17:30.191+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 390 for task transform_date_time_dim ('NoneType' object is not subscriptable; 29902)
+[2023-07-10T09:17:30.224+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-07-10T09:17:30.252+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

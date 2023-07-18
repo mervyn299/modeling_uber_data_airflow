@@ -1,0 +1,22 @@
+[2023-07-10T09:24:27.469+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_uber_data.transform_trip_distance_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T09:24:27.483+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_uber_data.transform_trip_distance_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T09:24:27.484+0000] {taskinstance.py:1308} INFO - Starting attempt 36 of 37
+[2023-07-10T09:24:27.502+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): transform_trip_distance_dim> on 2023-07-10 02:44:19.817965+00:00
+[2023-07-10T09:24:27.509+0000] {standard_task_runner.py:57} INFO - Started process 31044 to run task
+[2023-07-10T09:24:27.512+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_uber_data', 'transform_trip_distance_dim', 'manual__2023-07-10T02:44:19.817965+00:00', '--job-id', '432', '--raw', '--subdir', 'DAGS_FOLDER/etl_uber_data.py', '--cfg-path', '/tmp/tmptbl9dwqy']
+[2023-07-10T09:24:27.515+0000] {standard_task_runner.py:85} INFO - Job 432: Subtask transform_trip_distance_dim
+[2023-07-10T09:24:27.674+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_uber_data.transform_trip_distance_dim manual__2023-07-10T02:44:19.817965+00:00 [running]> on host 1481ab9bb806
+[2023-07-10T09:24:27.782+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mervyn Frost' AIRFLOW_CTX_DAG_ID='etl_uber_data' AIRFLOW_CTX_TASK_ID='transform_trip_distance_dim' AIRFLOW_CTX_EXECUTION_DATE='2023-07-10T02:44:19.817965+00:00' AIRFLOW_CTX_TRY_NUMBER='36' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-10T02:44:19.817965+00:00'
+[2023-07-10T09:24:27.797+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_uber_data.py", line 75, in transform_trip_distance_dim
+    trip_distance_dim = df[['trip_distance']].reset_index(drop=True)
+TypeError: 'NoneType' object is not subscriptable
+[2023-07-10T09:24:27.816+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_uber_data, task_id=transform_trip_distance_dim, execution_date=20230710T024419, start_date=20230710T092427, end_date=20230710T092427
+[2023-07-10T09:24:27.834+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 432 for task transform_trip_distance_dim ('NoneType' object is not subscriptable; 31044)
+[2023-07-10T09:24:27.845+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-07-10T09:24:27.887+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

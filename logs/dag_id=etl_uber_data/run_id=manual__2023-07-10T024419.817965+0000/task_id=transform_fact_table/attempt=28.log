@@ -1,0 +1,22 @@
+[2023-07-10T08:27:18.354+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_uber_data.transform_fact_table manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T08:27:18.369+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_uber_data.transform_fact_table manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T08:27:18.370+0000] {taskinstance.py:1308} INFO - Starting attempt 28 of 29
+[2023-07-10T08:27:18.395+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): transform_fact_table> on 2023-07-10 02:44:19.817965+00:00
+[2023-07-10T08:27:18.400+0000] {standard_task_runner.py:57} INFO - Started process 22425 to run task
+[2023-07-10T08:27:18.404+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_uber_data', 'transform_fact_table', 'manual__2023-07-10T02:44:19.817965+00:00', '--job-id', '207', '--raw', '--subdir', 'DAGS_FOLDER/etl_uber_data.py', '--cfg-path', '/tmp/tmpn3rbo_ej']
+[2023-07-10T08:27:18.407+0000] {standard_task_runner.py:85} INFO - Job 207: Subtask transform_fact_table
+[2023-07-10T08:27:18.466+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_uber_data.transform_fact_table manual__2023-07-10T02:44:19.817965+00:00 [running]> on host 1481ab9bb806
+[2023-07-10T08:27:18.562+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mervyn Frost' AIRFLOW_CTX_DAG_ID='etl_uber_data' AIRFLOW_CTX_TASK_ID='transform_fact_table' AIRFLOW_CTX_EXECUTION_DATE='2023-07-10T02:44:19.817965+00:00' AIRFLOW_CTX_TRY_NUMBER='28' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-10T02:44:19.817965+00:00'
+[2023-07-10T08:27:18.578+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_uber_data.py", line 150, in transform_fact_table
+    print(type(datetime_dim_transformed))
+NameError: name 'datetime_dim_transformed' is not defined
+[2023-07-10T08:27:18.592+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_uber_data, task_id=transform_fact_table, execution_date=20230710T024419, start_date=20230710T082718, end_date=20230710T082718
+[2023-07-10T08:27:18.608+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 207 for task transform_fact_table (name 'datetime_dim_transformed' is not defined; 22425)
+[2023-07-10T08:27:18.658+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-07-10T08:27:18.694+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

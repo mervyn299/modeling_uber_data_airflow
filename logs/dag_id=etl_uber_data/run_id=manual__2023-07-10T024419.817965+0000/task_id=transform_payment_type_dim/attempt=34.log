@@ -1,0 +1,22 @@
+[2023-07-10T09:20:57.748+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_uber_data.transform_payment_type_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T09:20:57.760+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_uber_data.transform_payment_type_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T09:20:57.760+0000] {taskinstance.py:1308} INFO - Starting attempt 34 of 35
+[2023-07-10T09:20:57.825+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): transform_payment_type_dim> on 2023-07-10 02:44:19.817965+00:00
+[2023-07-10T09:20:57.831+0000] {standard_task_runner.py:57} INFO - Started process 30481 to run task
+[2023-07-10T09:20:57.837+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_uber_data', 'transform_payment_type_dim', 'manual__2023-07-10T02:44:19.817965+00:00', '--job-id', '413', '--raw', '--subdir', 'DAGS_FOLDER/etl_uber_data.py', '--cfg-path', '/tmp/tmpck61m9xd']
+[2023-07-10T09:20:57.841+0000] {standard_task_runner.py:85} INFO - Job 413: Subtask transform_payment_type_dim
+[2023-07-10T09:20:57.901+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_uber_data.transform_payment_type_dim manual__2023-07-10T02:44:19.817965+00:00 [running]> on host 1481ab9bb806
+[2023-07-10T09:20:57.987+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mervyn Frost' AIRFLOW_CTX_DAG_ID='etl_uber_data' AIRFLOW_CTX_TASK_ID='transform_payment_type_dim' AIRFLOW_CTX_EXECUTION_DATE='2023-07-10T02:44:19.817965+00:00' AIRFLOW_CTX_TRY_NUMBER='34' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-10T02:44:19.817965+00:00'
+[2023-07-10T09:20:58.005+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_uber_data.py", line 128, in transform_payment_type_dim
+    payment_type_dim = df[['payment_type']].reset_index(drop=True)
+TypeError: 'NoneType' object is not subscriptable
+[2023-07-10T09:20:58.020+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_uber_data, task_id=transform_payment_type_dim, execution_date=20230710T024419, start_date=20230710T092057, end_date=20230710T092058
+[2023-07-10T09:20:58.031+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 413 for task transform_payment_type_dim ('NoneType' object is not subscriptable; 30481)
+[2023-07-10T09:20:58.052+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-07-10T09:20:58.152+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

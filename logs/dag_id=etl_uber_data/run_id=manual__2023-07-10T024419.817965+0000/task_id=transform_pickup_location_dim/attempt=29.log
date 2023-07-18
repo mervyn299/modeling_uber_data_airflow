@@ -1,0 +1,22 @@
+[2023-07-10T09:09:24.926+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_uber_data.transform_pickup_location_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T09:09:24.937+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_uber_data.transform_pickup_location_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T09:09:24.938+0000] {taskinstance.py:1308} INFO - Starting attempt 29 of 30
+[2023-07-10T09:09:24.965+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): transform_pickup_location_dim> on 2023-07-10 02:44:19.817965+00:00
+[2023-07-10T09:09:24.972+0000] {standard_task_runner.py:57} INFO - Started process 28715 to run task
+[2023-07-10T09:09:24.978+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_uber_data', 'transform_pickup_location_dim', 'manual__2023-07-10T02:44:19.817965+00:00', '--job-id', '364', '--raw', '--subdir', 'DAGS_FOLDER/etl_uber_data.py', '--cfg-path', '/tmp/tmpqm8w1vu9']
+[2023-07-10T09:09:24.983+0000] {standard_task_runner.py:85} INFO - Job 364: Subtask transform_pickup_location_dim
+[2023-07-10T09:09:25.056+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_uber_data.transform_pickup_location_dim manual__2023-07-10T02:44:19.817965+00:00 [running]> on host 1481ab9bb806
+[2023-07-10T09:09:25.149+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mervyn Frost' AIRFLOW_CTX_DAG_ID='etl_uber_data' AIRFLOW_CTX_TASK_ID='transform_pickup_location_dim' AIRFLOW_CTX_EXECUTION_DATE='2023-07-10T02:44:19.817965+00:00' AIRFLOW_CTX_TRY_NUMBER='29' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-10T02:44:19.817965+00:00'
+[2023-07-10T09:09:25.162+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_uber_data.py", line 103, in transform_pickup_location_dim
+    pickup_location_dim = df[['pickup_longitude','pickup_latitude']].reset_index(drop=True)
+TypeError: 'NoneType' object is not subscriptable
+[2023-07-10T09:09:25.174+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_uber_data, task_id=transform_pickup_location_dim, execution_date=20230710T024419, start_date=20230710T090924, end_date=20230710T090925
+[2023-07-10T09:09:25.215+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 364 for task transform_pickup_location_dim ('NoneType' object is not subscriptable; 28715)
+[2023-07-10T09:09:25.232+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-07-10T09:09:25.332+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

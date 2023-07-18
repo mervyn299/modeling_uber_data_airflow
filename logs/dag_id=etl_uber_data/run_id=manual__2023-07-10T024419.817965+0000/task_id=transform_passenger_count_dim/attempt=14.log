@@ -1,0 +1,26 @@
+[2023-07-10T08:25:29.266+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_uber_data.transform_passenger_count_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T08:25:29.277+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_uber_data.transform_passenger_count_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T08:25:29.277+0000] {taskinstance.py:1308} INFO - Starting attempt 14 of 15
+[2023-07-10T08:25:29.305+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): transform_passenger_count_dim> on 2023-07-10 02:44:19.817965+00:00
+[2023-07-10T08:25:29.311+0000] {standard_task_runner.py:57} INFO - Started process 21797 to run task
+[2023-07-10T08:25:29.316+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_uber_data', 'transform_passenger_count_dim', 'manual__2023-07-10T02:44:19.817965+00:00', '--job-id', '191', '--raw', '--subdir', 'DAGS_FOLDER/etl_uber_data.py', '--cfg-path', '/tmp/tmpwfy_92zw']
+[2023-07-10T08:25:29.319+0000] {standard_task_runner.py:85} INFO - Job 191: Subtask transform_passenger_count_dim
+[2023-07-10T08:25:29.376+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_uber_data.transform_passenger_count_dim manual__2023-07-10T02:44:19.817965+00:00 [running]> on host 1481ab9bb806
+[2023-07-10T08:25:29.468+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mervyn Frost' AIRFLOW_CTX_DAG_ID='etl_uber_data' AIRFLOW_CTX_TASK_ID='transform_passenger_count_dim' AIRFLOW_CTX_EXECUTION_DATE='2023-07-10T02:44:19.817965+00:00' AIRFLOW_CTX_TRY_NUMBER='14' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-10T02:44:19.817965+00:00'
+[2023-07-10T08:25:29.686+0000] {python.py:183} INFO - Done. Returned value was:        passenger_count_id  passenger_count
+0                       0                1
+1                       1                1
+2                       2                2
+3                       3                3
+4                       4                5
+...                   ...              ...
+99995               99995                1
+99996               99996                1
+99997               99997                1
+99998               99998                1
+99999               99999                1
+
+[100000 rows x 2 columns]
+[2023-07-10T08:25:29.805+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=etl_uber_data, task_id=transform_passenger_count_dim, execution_date=20230710T024419, start_date=20230710T082529, end_date=20230710T082529
+[2023-07-10T08:25:29.849+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-07-10T08:25:29.889+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

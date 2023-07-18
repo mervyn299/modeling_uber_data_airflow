@@ -1,0 +1,14 @@
+[2023-07-10T05:11:33.471+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_uber_data.transform_fact_table manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T05:11:33.479+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_uber_data.transform_fact_table manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T05:11:33.480+0000] {taskinstance.py:1308} INFO - Starting attempt 12 of 13
+[2023-07-10T05:11:33.492+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): transform_fact_table> on 2023-07-10 02:44:19.817965+00:00
+[2023-07-10T05:11:33.497+0000] {standard_task_runner.py:57} INFO - Started process 9600 to run task
+[2023-07-10T05:11:33.499+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_uber_data', 'transform_fact_table', 'manual__2023-07-10T02:44:19.817965+00:00', '--job-id', '77', '--raw', '--subdir', 'DAGS_FOLDER/etl_uber_data.py', '--cfg-path', '/tmp/tmpnytx44lm']
+[2023-07-10T05:11:33.501+0000] {standard_task_runner.py:85} INFO - Job 77: Subtask transform_fact_table
+[2023-07-10T05:11:33.543+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_uber_data.transform_fact_table manual__2023-07-10T02:44:19.817965+00:00 [running]> on host 1481ab9bb806
+[2023-07-10T05:11:33.611+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mervyn Frost' AIRFLOW_CTX_DAG_ID='etl_uber_data' AIRFLOW_CTX_TASK_ID='transform_fact_table' AIRFLOW_CTX_EXECUTION_DATE='2023-07-10T02:44:19.817965+00:00' AIRFLOW_CTX_TRY_NUMBER='12' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-10T02:44:19.817965+00:00'
+[2023-07-10T05:11:33.759+0000] {logging_mixin.py:149} INFO - <class 'pandas.core.frame.DataFrame'>
+[2023-07-10T05:11:33.762+0000] {python.py:183} INFO - Done. Returned value was: None
+[2023-07-10T05:11:33.770+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=etl_uber_data, task_id=transform_fact_table, execution_date=20230710T024419, start_date=20230710T051133, end_date=20230710T051133
+[2023-07-10T05:11:33.793+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-07-10T05:11:33.813+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,26 @@
+[2023-07-10T08:41:11.478+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_uber_data.transform_dropoff_location_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T08:41:11.494+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_uber_data.transform_dropoff_location_dim manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T08:41:11.495+0000] {taskinstance.py:1308} INFO - Starting attempt 22 of 23
+[2023-07-10T08:41:11.514+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): transform_dropoff_location_dim> on 2023-07-10 02:44:19.817965+00:00
+[2023-07-10T08:41:11.521+0000] {standard_task_runner.py:57} INFO - Started process 24962 to run task
+[2023-07-10T08:41:11.524+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_uber_data', 'transform_dropoff_location_dim', 'manual__2023-07-10T02:44:19.817965+00:00', '--job-id', '276', '--raw', '--subdir', 'DAGS_FOLDER/etl_uber_data.py', '--cfg-path', '/tmp/tmpmwl_f9u9']
+[2023-07-10T08:41:11.527+0000] {standard_task_runner.py:85} INFO - Job 276: Subtask transform_dropoff_location_dim
+[2023-07-10T08:41:11.591+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_uber_data.transform_dropoff_location_dim manual__2023-07-10T02:44:19.817965+00:00 [running]> on host 1481ab9bb806
+[2023-07-10T08:41:11.687+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mervyn Frost' AIRFLOW_CTX_DAG_ID='etl_uber_data' AIRFLOW_CTX_TASK_ID='transform_dropoff_location_dim' AIRFLOW_CTX_EXECUTION_DATE='2023-07-10T02:44:19.817965+00:00' AIRFLOW_CTX_TRY_NUMBER='22' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-10T02:44:19.817965+00:00'
+[2023-07-10T08:41:11.993+0000] {python.py:183} INFO - Done. Returned value was:        dropoff_location_id  dropoff_longitude  dropoff_latitude
+0                        0         -74.004265         40.746128
+1                        1         -74.005943         40.733166
+2                        2         -73.974541         40.675770
+3                        3         -73.969650         40.757767
+4                        4         -74.177170         40.695053
+...                    ...                ...               ...
+99995                99995         -73.998245         40.750462
+99996                99996         -73.982361         40.752529
+99997                99997         -73.865028         40.770512
+99998                99998         -73.970695         40.759148
+99999                99999         -73.980354         40.754910
+
+[100000 rows x 3 columns]
+[2023-07-10T08:41:12.248+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=etl_uber_data, task_id=transform_dropoff_location_dim, execution_date=20230710T024419, start_date=20230710T084111, end_date=20230710T084112
+[2023-07-10T08:41:12.305+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-07-10T08:41:12.327+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check

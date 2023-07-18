@@ -1,0 +1,32 @@
+[2023-07-10T05:03:49.342+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_uber_data.transform_fact_table manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T05:03:49.351+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_uber_data.transform_fact_table manual__2023-07-10T02:44:19.817965+00:00 [queued]>
+[2023-07-10T05:03:49.352+0000] {taskinstance.py:1308} INFO - Starting attempt 6 of 7
+[2023-07-10T05:03:49.363+0000] {taskinstance.py:1327} INFO - Executing <Task(PythonOperator): transform_fact_table> on 2023-07-10 02:44:19.817965+00:00
+[2023-07-10T05:03:49.367+0000] {standard_task_runner.py:57} INFO - Started process 8983 to run task
+[2023-07-10T05:03:49.370+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'etl_uber_data', 'transform_fact_table', 'manual__2023-07-10T02:44:19.817965+00:00', '--job-id', '70', '--raw', '--subdir', 'DAGS_FOLDER/etl_uber_data.py', '--cfg-path', '/tmp/tmponpl79mt']
+[2023-07-10T05:03:49.371+0000] {standard_task_runner.py:85} INFO - Job 70: Subtask transform_fact_table
+[2023-07-10T05:03:49.410+0000] {task_command.py:410} INFO - Running <TaskInstance: etl_uber_data.transform_fact_table manual__2023-07-10T02:44:19.817965+00:00 [running]> on host 1481ab9bb806
+[2023-07-10T05:03:49.471+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Mervyn Frost' AIRFLOW_CTX_DAG_ID='etl_uber_data' AIRFLOW_CTX_TASK_ID='transform_fact_table' AIRFLOW_CTX_EXECUTION_DATE='2023-07-10T02:44:19.817965+00:00' AIRFLOW_CTX_TRY_NUMBER='6' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-07-10T02:44:19.817965+00:00'
+[2023-07-10T05:03:49.609+0000] {taskinstance.py:1824} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_uber_data.py", line 138, in transform_fact_table
+    fact_table = df.merge(passenger_count_dim, left_on='trip_id', right_on='passenger_count_id') \
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 9203, in merge
+    validate=validate,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/reshape/merge.py", line 119, in merge
+    validate=validate,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/reshape/merge.py", line 699, in __init__
+    ) = self._get_merge_keys()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/reshape/merge.py", line 1109, in _get_merge_keys
+    left_keys.append(left._get_label_or_level_values(lk))
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 1779, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'trip_id'
+[2023-07-10T05:03:49.622+0000] {taskinstance.py:1350} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_uber_data, task_id=transform_fact_table, execution_date=20230710T024419, start_date=20230710T050349, end_date=20230710T050349
+[2023-07-10T05:03:49.632+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 70 for task transform_fact_table ('trip_id'; 8983)
+[2023-07-10T05:03:49.663+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 1
+[2023-07-10T05:03:49.687+0000] {taskinstance.py:2653} INFO - 0 downstream tasks scheduled from follow-on schedule check
